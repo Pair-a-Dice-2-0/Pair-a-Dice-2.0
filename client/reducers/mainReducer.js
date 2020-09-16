@@ -13,8 +13,10 @@ const initialState = {
     _id: 4,
     partnername: 'partnertest1',
     sessioncount: 2
-  }
-  // currentUser: {},
+  },
+  loading: false,
+  error: null,
+  currentUser: {},
   // currentPartner: {},
 };
 
@@ -46,39 +48,57 @@ const mainReducer = (state = initialState, action) => {
   switch (action.type) {
 
     // Verify User
-    case types.VERIFY_USER: 
-      console.log('action.payload', action.payload)
-      let user = {
-        id: null,
-        username: null,
-        sessioncount: null,
-      };
+    // case types.VERIFY_USER: 
+    //   console.log('action.payload', action.payload)
+    //   let user = {
+    //     id: null,
+    //     username: null,
+    //     sessioncount: null,
+    //   };
 
       //{body: {username: action.payload.username, password: action.payload.password}}
 
       //Fetch request not functional
-      fetch(`http://localhost:8080/api/user/?username=${action.payload.username}&password=${action.payload.password}`)
-        .then(response => {
-          return response.json();
-        }).then(data => {
-          // console.log('data:', data)
-          user.id = data._id;
-          user.username = data.username;
-          user.sessioncount = data.sessioncount;
-          console.log('User: ', user);
-          return {
-            ...state,
-            currentUser: {
-              ...state.currentUser,
-              _id: user.id,
-              username: user.username,
-              sessioncount: user.sessioncount
-            }
-          };
-        })
-        .catch(err => console.log(err));
-      break;
-
+      // fetch(`http://localhost:8080/api/user/?username=${action.payload.username}&password=${action.payload.password}`)
+      //   .then(response => {
+      //     return response.json();
+      //   }).then(data => {
+      //     // console.log('data:', data)
+      //     user.id = data._id;
+      //     user.username = data.username;
+      //     user.sessioncount = data.sessioncount;
+      //     console.log('User: ', user);
+      //     return {
+      //       ...state,
+      //       currentUser: {
+      //         ...state.currentUser,
+      //         _id: user.id,
+      //         username: user.username,
+      //         sessioncount: user.sessioncount
+      //       }
+      //     };
+      //   })
+      //   .catch(err => console.log(err));
+      // break;
+    case types.VERIFY_USER_STARTED:
+      return {
+        ...state,
+        loading: true
+      }
+    case types.VERIFY_USER_SUCCESS:
+      console.log("action payload in verify user success: ",action.payload);
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        currentUser: {user: action.payload.username}
+      }
+    case types.VERIFY_USER_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
+      }
 
     // Add User
     case types.ADD_USER: 
