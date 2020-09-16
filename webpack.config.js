@@ -1,14 +1,14 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
   //main point of entry for webpack
-  entry: "./client/index.js",
+  entry: './client/index.js',
   //Where the bundle file is placed
   output: {
-    path: path.resolve(__dirname, "build"),
-    filename: "bundle.js",
+    path: path.resolve(__dirname, 'build'),
+    filename: 'bundle.js',
     //defines fallback route ('localhost:8080/')
-    publicPath: '/'
+    publicPath: '/',
   },
   //Production or Development, production gets minified/uglified
   mode: process.env.NODE_ENV,
@@ -20,9 +20,9 @@ module.exports = {
         exclude: /(node_modules)/,
         use: {
           //what loader used to make these file type browser ready
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: ["@babel/preset-env", `@babel/preset-react`],
+            presets: ['@babel/preset-env', `@babel/preset-react`],
           },
         },
       },
@@ -31,25 +31,25 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           // Creates `style` nodes from JS strings
-          "style-loader",
+          'style-loader',
           // Translates CSS into CommonJS
-          "css-loader",
+          'css-loader',
           // Compiles Sass to CSS
-          "sass-loader",
+          'sass-loader',
         ],
       },
     ],
   },
   devServer: {
     //where to find the bundle
-    publicPath: "/build/",
+    publicPath: '/build/',
     proxy: {
-      "/api": "http://localhost:3000",
+      '/api': 'http://localhost:3000',
     },
     //All 404's will fallback to '/'
     historyApiFallback: true,
   },
   resolve: {
-    extensions: [".js", ".jsx"],
+    extensions: ['.js', '.jsx'],
   },
 };
