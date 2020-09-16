@@ -28,17 +28,22 @@ userController.addUser = (req, res, next) => {
 
 //Adding middleware to get login information
 userController.verifyUser = (req, res, next) => {
-  const { username, password } = req.body;
+  const { username, password } = req.query;
   // console.log('username: ', username);
   // console.log('password: ', password);
   const queryText = `SELECT _id, username, sessioncount FROM users WHERE username = $1 AND password = $2`
-  const queryParams = [req.query.username, req.query.password]
+  const queryParams = [username, password];
 
   db.query(queryText, queryParams)
     .then((result) => {
-      res.locals.user = (result.rows[0]);
-      res.status(200).json(res.locals.user)
-      // return next();
+      if (result.rows.length === 0) {
+        res.send('User does not exist. Try again!')
+        return next();
+      } else {
+        res.locals.user = (result.rows[0]);
+        res.status(200).json(res.locals.user)
+        return next();
+      }
     })
     .catch((err) => {
       next({
@@ -46,7 +51,6 @@ userController.verifyUser = (req, res, next) => {
         message: { err },
       });
     });
-    // next();
 }
 
 //Updates skill level and language.
