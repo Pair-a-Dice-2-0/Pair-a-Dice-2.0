@@ -12,10 +12,7 @@ app.use(bodyParser.json());
 //defining route handler to apiRouter
 app.use('/api', apiRouter);
 
-
 //Start server
-app.listen(PORT, () => {
-    console.log(`Server listening on port: ${PORT}`);
+module.exports = app.listen(PORT, () => {
+  console.log(`Server listening on port: ${PORT}`);
 });
-
-module.exports = app;
