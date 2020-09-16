@@ -1,6 +1,8 @@
 import * as types from '../constants/actionTypes';
 
 // userSessions:[{session: {1 session}, mainuser:{}, partner:{}},...] 
+
+// Refactor initialState with default properties instead of hard-coded
 const initialState = {
   currentUser: {
     _id: 5,
@@ -54,6 +56,7 @@ switch(action.type) {
 
     //{body: {username: action.payload.username, password: action.payload.password}}
 
+    //Fetch request not functional
     fetch(`http://localhost:8080/api/user/?username=${action.payload.username}&password=${action.payload.password}`)
       .then(response => {
         return response.json();

@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "NODE_ENV=production node server/server.js",
     "build": "NODE_ENV=production webpack",
-    "dev": "NODE_ENV=development concurrently \"nodemon server/server.js\" \"webpack-dev-server --open\"",
+    "dev": "NODE_ENV=development concurrently \"nodemon server/server.js\" \"webpack-dev-server --open --hot\"",
     "server": "nodemon /server/server.js"
   },
   "repository": {
@@ -30,7 +30,8 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
-    "redux-devtools": "^3.7.0"
+    "redux-devtools": "^3.7.0",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
@@ -38,15 +39,27 @@
     "@babel/preset-react": "^7.10.4",
     "babel": "^6.23.0",
     "babel-loader": "^8.1.0",
+    "babel-jest": "^23.6.0",
     "concurrently": "^5.3.0",
     "css-loader": "^4.3.0",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "enzyme-to-json": "^3.3.4",
+    "eslint": "^5.6.1",
+    "jest": "^26.4.2",
+    "jest-puppeteer": "^3.4.0",
     "node-sass": "^4.14.1",
     "nodemon": "^2.0.4",
     "redux-devtools-extension": "^2.13.8",
+    "puppeteer": "^1.9.0",
+    "react-addons-test-utils": "^15.6.2",
+    "react-test-renderer": "^16.5.2",
     "sass-loader": "^10.0.2",
     "style-loader": "^1.2.1",
+    "supertest": "^3.3.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "zombie": "^6.1.3"
   }
 }

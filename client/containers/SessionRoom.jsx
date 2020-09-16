@@ -39,6 +39,7 @@ class SessionRoom extends Component {
             <a href="https://codesandbox.io/s/serene-bhabha-0s83d">Sandbox</a><br /><br />
             <pre>
               <code>
+                {/* Coding problem that appears on page */}
                 <span>"Write a program that prints the numbers from 1 to 100. <br />
                 But for multiples of three print “Fizz” instead of the number and <br />
                 for the multiples of five print “Buzz”. For numbers which are multiples <br />

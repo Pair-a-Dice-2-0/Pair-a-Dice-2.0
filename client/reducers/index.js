@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux';
-
 // import all reducers here
 import mainReducer from './mainReducer.js';
 
