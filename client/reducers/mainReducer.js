@@ -4,11 +4,11 @@ import * as types from '../constants/actionTypes';
 
 // Refactor initialState with default properties instead of hard-coded
 const initialState = {
-  currentUser: {
-    _id: 5,
-    username: 'usertest',
-    sessioncount: 10
-  },
+  // currentUser: {
+  //   _id: 5,
+  //   username: 'usertest',
+  //   sessioncount: 10
+  // },
   currentPartner: {
     _id: 4,
     partnername: 'partnertest1',
@@ -94,6 +94,7 @@ const mainReducer = (state = initialState, action) => {
         currentUser: {user: action.payload.username}
       }
     case types.VERIFY_USER_FAIL:
+      alert('Login information incorrect')
       return {
         ...state,
         loading: false,
@@ -116,7 +117,7 @@ const mainReducer = (state = initialState, action) => {
     }
 
     case types.ADD_USER_FAIL:
-
+      alert('Username already exists')
       return {
         ...state,
         loading: false,

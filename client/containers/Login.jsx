@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import socketIOClient from 'socket.io-client';
+const ENDPOINT = "http://localhost:3000";
 
 // import our children components
 // import LoginForm
@@ -25,6 +27,8 @@ class Login extends Component {
     let usernameInput;
     let passwordInput;
 
+    // Socket io
+    const socket = socketIOClient(ENDPOINT);
 
     return(
       <div className="login-container">
@@ -35,7 +39,7 @@ class Login extends Component {
         <div className="login-subTitle">
         Pair-programming roulette.<br />
         </div>
-        <div className="dice">🎲🎲</div>
+        <div className="dice">Dice here</div>
         <div className="login-form">
           <span className="input-fields">
             <input
@@ -45,7 +49,7 @@ class Login extends Component {
               onChange={e => usernameInput = e.target.value}
             ></input>
             <input
-              type="text"
+              type="password"
               id="password-input"
               placeholder="Password"
               onChange={e => passwordInput = e.target.value}
