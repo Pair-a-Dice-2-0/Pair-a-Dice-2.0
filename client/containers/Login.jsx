@@ -11,6 +11,7 @@ import * as actions from '../actions/actions.js';
 
 const mapDispatchToProps = dispatch => ({
   verifyUser: (newUser) => dispatch(actions.verifyUser(newUser)),
+  addUser: (newUser) => dispatch(actions.addUser(newUser))
 })
 
 class Login extends Component {
@@ -23,6 +24,7 @@ class Login extends Component {
 
     let usernameInput;
     let passwordInput;
+
 
     return(
       <div className="login-container">
@@ -55,7 +57,7 @@ class Login extends Component {
                 <button 
                   id="register-button"
                   type="button"
-                  // onClick={() => this.props.addUser()}
+                  onClick={() => this.props.addUser({username: usernameInput, password: passwordInput})}
                 >Register</button>
               </Link>
               <Link to="/waiting-room" className="waiting-room-link">

@@ -8,21 +8,22 @@ userController.addUser = (req, res, next) => {
   //Insert query text, adds new user to database
   const queryText = `INSERT INTO users (username, password, skill, language, status, sessioncount) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`;
   //Parameters used for our query
-  const queryParams = [req.query.username, req.query.password, 'Easy', 'JavaScript', 'NotReady', 0]
+  const queryParams = [username, password, 'Easy', 'JavaScript', 'NotReady', 0]
   //execute query
   db.query(queryText, queryParams)
     .then((result) => {
+      
        res.locals.user = result.rows[0];
+      //  console.log(`res.locals.user `, res.locals.user)
        return next();
       })
   //error catch
     .catch((err) => {
-        next({
+        return next({
           log: 'Error in addUser middleware function',
           message: { err },
           });
        });
-   next();
     
 }
 
