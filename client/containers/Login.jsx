@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import socketIOClient from 'socket.io-client';
+const ENDPOINT = "http://127.0.0.1:3000";
 
 // import our children components
 // import LoginForm
@@ -25,6 +27,8 @@ class Login extends Component {
     let usernameInput;
     let passwordInput;
 
+    // Socket io
+    const socket = socketIOClient(ENDPOINT);
 
     return(
       <div className="login-container">
