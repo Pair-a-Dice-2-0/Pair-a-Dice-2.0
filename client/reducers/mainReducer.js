@@ -4,11 +4,11 @@ import * as types from '../constants/actionTypes';
 
 // Refactor initialState with default properties instead of hard-coded
 const initialState = {
-  currentUser: {
-    _id: 5,
-    username: 'usertest',
-    sessioncount: 10
-  },
+  // currentUser: {
+  //   _id: 5,
+  //   username: 'usertest',
+  //   sessioncount: 10
+  // },
   currentPartner: {
     _id: 4,
     partnername: 'partnertest1',
