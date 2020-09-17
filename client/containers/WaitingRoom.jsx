@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link, withRouter, Redirect } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 // import our children components
 // import AccountInfo from '../components/AccountInfo.jsx'
@@ -11,7 +11,7 @@ import * as actions from '../actions/actions.js';
 
 // mapStateToProps
 const mapStateToProps = state => ({
-  username: state.main.currentUser.user,
+  username: state.main.currentUser.username,
   sessionCount: state.main.currentUser.sessioncount
 })
 
@@ -37,51 +37,45 @@ class WaitingRoom extends Component {
   // render Logo and LoginForm Component
   render() {
     
-    // console.log(this.state.toggle)
+    console.log(this.state.toggle)
 
-    // Check if user is authenticated
-    
-      return(
-        <div className="waiting-room-container">
-          {/* <span className="waiting-room-navbar"> */}
-            <span className="login-logo">pair/a\dice</span>
-          {/* </span> */}
-          <div className="greeting">
-            <center>
-              Hello Friend,<br /><br />
-              Please choose a level and language!<br />
-            </center>
-          </div>
-          <div className="drop-down">
-            <span className="selectors">
-              <select className="skill-selector">
-                <option value="Easy">Easy</option>
-                <option value="Medium">Medium</option>
-                <option value="Hard">Hard</option>
-              </select>
-              <select className="language-selector">
-                <option value="Javascript">Javascript</option>
-                <option value="Python">Python</option>
-                <option value="C">C</option>
-              </select>
-            </span>
-          </div>
-          <div className="level-language-form">
-            <Link to="/session-room" className="session-room-link">
-              <button
-                  id="waiting-room-button"
-                  type="button"
-                  // onClick={() => this.props.findPartner()}
-              >FIND PARTNER</button>
-            </Link>
-          </div>
+    return(
+      <div className="waiting-room-container">
+        {/* <span className="waiting-room-navbar"> */}
+          <span className="login-logo">pair/a\dice</span>
+        {/* </span> */}
+        <div className="greeting">
+          <center>
+            Hello Friend,<br /><br />
+            Please choose a level and language!<br />
+          </center>
         </div>
-      )
-    // Else redirect to login (if user isn't authenticated)
-    
-
-    
+        <div className="drop-down">
+          <span className="selectors">
+            <select className="skill-selector">
+              <option value="Easy">Easy</option>
+              <option value="Medium">Medium</option>
+              <option value="Hard">Hard</option>
+            </select>
+            <select className="language-selector">
+              <option value="Javascript">Javascript</option>
+              <option value="Python">Python</option>
+              <option value="C">C</option>
+            </select>
+          </span>
+        </div>
+        <div className="level-language-form">
+          <Link to="/session-room" className="session-room-link">
+            <button
+                id="waiting-room-button"
+                type="button"
+                // onClick={() => this.props.findPartner()}
+            >FIND PARTNER</button>
+          </Link>
+        </div>
+      </div>
+    )
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(WaitingRoom);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(WaitingRoom));
