@@ -49,7 +49,7 @@ class Login extends Component {
               onChange={e => usernameInput = e.target.value}
             ></input>
             <input
-              type="text"
+              type="password"
               id="password-input"
               placeholder="Password"
               onChange={e => passwordInput = e.target.value}
