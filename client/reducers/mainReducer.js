@@ -86,7 +86,7 @@ const mainReducer = (state = initialState, action) => {
         loading: true
       }
     case types.VERIFY_USER_SUCCESS:
-      console.log("action payload in verify user success: ",action.payload);
+      // console.log("action payload in verify user success: ",action.payload);
       return {
         ...state,
         loading: false,
@@ -101,7 +101,28 @@ const mainReducer = (state = initialState, action) => {
       }
 
     // Add User
-    case types.ADD_USER: 
+    case types.ADD_USER_STARTED: 
+    return {
+      ...state,
+      loading: true
+    }
+
+    case types.ADD_USER_SUCCESS:
+    return {
+      ...state,
+        loading: false,
+        error: null,
+        currentUser: {user: action.payload.username}
+    }
+
+    case types.ADD_USER_FAIL:
+
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
+
+      }
     /*
       let user = {
         username: action.payload.username,
