@@ -39,7 +39,7 @@ class Login extends Component {
         <div className="login-subTitle">
         Pair-programming roulette.<br />
         </div>
-        <div className="dice">🎲🎲</div>
+        <div className="dice">Dice here</div>
         <div className="login-form">
           <span className="input-fields">
             <input
