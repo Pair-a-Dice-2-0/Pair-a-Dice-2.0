@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import socketIOClient from 'socket.io-client';
-const ENDPOINT = "http://127.0.0.1:3000";
+const ENDPOINT = "http://localhost:3000";
 
 // import our children components
 // import LoginForm
