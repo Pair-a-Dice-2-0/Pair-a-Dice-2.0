@@ -23,6 +23,9 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => {
     console.log('user disconnected')
   });
+  socket.on('code change', (val) => {
+    io.emit('receive code', val);
+  })
 });
 
 //Start server
