@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+
 import socketIOClient from 'socket.io-client';
 const ENDPOINT = "http://localhost:3000";
 import dice from './source.gif';
 const GifPlayer = require('react-gif-player');
+
 // import our children components
 // import LoginForm
 
@@ -28,8 +30,6 @@ class Login extends Component {
     let usernameInput;
     let passwordInput;
 
-    // Socket io
-    const socket = socketIOClient(ENDPOINT);
 
     return(
       <div className="login-container">
