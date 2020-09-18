@@ -1,3 +1,7 @@
+@import 'codemirror/theme/material.css';
+@import 'codemirror/lib/codemirror.css';
+
+
 body {
   background:#F9DEC9
 }
@@ -6,9 +10,21 @@ body {
   font-family: 'Pacifico', cursive;
   font-style: 20;
 }
-// .login-subTitle {
+.login-subTitle {
+  font-family: 'Karla', sans-serif;
+}
+.greeting {
+  font-family: 'Karla', sans-serif;
+}
+.dice {
+  font-family: 'Karla', sans-serif;
+  
+}
 
-// }
+.dicegif {
+  height: 150px;
+  width: 150px;
+}
 
 .login-container {
   display: flex;
@@ -47,11 +63,23 @@ body {
   background-color: #AEC5EB;
   border-color: #AEC5EB;
 }
+#register-button:hover {
+  background-color: #6b7c96;
+  cursor: pointer;
+  transition: .3s;
+  color: white;
+}
 
 #login-button {
   margin: 10px;
   background-color: #AEC5EB;
   border-color: #AEC5EB;
+}
+#login-button:hover {
+  background-color: #6b7c96;
+  cursor: pointer;
+  transition: .3s;
+  color: white;
 }
 
 #password-input {
@@ -98,7 +126,12 @@ body {
 #waiting-room-button:focus {
   outline: none;
 }
-
+#waiting-room-button:hover {
+  background-color: #6b7c96;
+  cursor: pointer;
+  transition: .3s;
+  color: white;
+}
 
 .logo {
   font-size: 30px;
@@ -121,6 +154,13 @@ body {
   border: 1px solid rgb(194, 194, 194);
   margin: 10px;
   color: #685044;
+}
+.drop-down select:focus {
+  outline: none;
+}
+.drop-down select {
+  background-color: #616c9f;
+  color:white;
 }
 
 #register-button {
@@ -162,4 +202,11 @@ body {
 
 #session-room-button:focus {
   outline: none;
+}
+
+#session-room-button:hover {
+  background-color: #6b7c96;
+  cursor: pointer;
+  transition: .3s;
+  color: white;
 }
