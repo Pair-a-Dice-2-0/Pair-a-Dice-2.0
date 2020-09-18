@@ -20,12 +20,14 @@ app.use((req, res) => res.sendStatus(404));
 // Create event listener for socket connection
 io.on('connection', (socket) => {
   console.log('a user connected');
-  socket.on('disconnect', () => {
-    console.log('user disconnected')
-  });
   socket.on('code change', (val) => {
-    io.emit('receive code', val);
+    // Sends to all clients except sender
+    io.sockets.emit('receive code', val);
   })
+});
+
+io.on('disconnect', () => {
+  console.log('user disconnected')
 });
 
 //Start server

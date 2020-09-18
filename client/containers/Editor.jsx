@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { UnControlled as CodeMirror } from "react-codemirror2";
 import socketIOClient from 'socket.io-client';
 const ENDPOINT = "http://localhost:3000";
+const socket = socketIOClient(ENDPOINT);
 
 class Editor extends Component {
   constructor(props) {
@@ -12,23 +13,17 @@ class Editor extends Component {
       code: ''
     }
     // Socket io
-    const socket = socketIOClient(ENDPOINT);
     socket.on('receive code', (msg) => {
-      this.updateCodeFromSockets(msg)
+      this.setState({code: msg})
     });
     this.emitter = this.emitter.bind(this);
-    this.updateCodeFromSockets = this.updateCodeFromSockets.bind(this);
   }
   // When socket receives message, add it to Codemirror editor
   
   emitter(editor, data, value) {
     // Emit code change to socket
-    socket.emit('code change', value);
+    socket.emit('code change', value);    
   }  
-  
-  updateCodeFromSockets(payload) {
-    this.setState({code: payload})
-  }
 
   render() {
     return (
