@@ -1,13 +1,15 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 const bodyParser = require('body-parser');
 const apiRouter = require('./routes/api');
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const PORT = 3000;
 
-//db connection
 
+app.use('/', express.static(path.resolve(__dirname, '../client/containers/source.gif')))
+//db connection
 //body parser
 app.use(bodyParser.json());
 
