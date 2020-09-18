@@ -1,6 +1,7 @@
 @import 'codemirror/theme/material.css';
 @import 'codemirror/lib/codemirror.css';
 
+
 body {
   background:#F9DEC9
 }
@@ -18,6 +19,11 @@ body {
 .dice {
   font-family: 'Karla', sans-serif;
   
+}
+
+.dicegif {
+  height: 150px;
+  width: 150px;
 }
 
 .login-container {
@@ -148,6 +154,13 @@ body {
   border: 1px solid rgb(194, 194, 194);
   margin: 10px;
   color: #685044;
+}
+.drop-down select:focus {
+  outline: none;
+}
+.drop-down select {
+  background-color: #616c9f;
+  color:white;
 }
 
 #register-button {

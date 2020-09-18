@@ -1,3 +1,4 @@
+
 const path = require('path');
 
 module.exports = {
@@ -36,6 +37,19 @@ module.exports = {
           'css-loader',
           // Compiles Sass to CSS
           'sass-loader',
+        ],
+      },
+      {
+        test: /\.(png|jpg|gif|woff|woff2|eot|ttf|svg|ico)$/,
+        use: [
+          {
+            // loads files as base64 encoded data url if image file is less than set limit
+            loader: 'url-loader',
+            options: {
+              // if file is greater than the limit (bytes), file-loader is used as fallback
+              limit: 8192,
+            },
+          },
         ],
       },
     ],

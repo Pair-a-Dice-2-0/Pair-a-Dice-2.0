@@ -32,11 +32,11 @@ class SessionRoom extends Component {
       <div className="greeting">
         <center>
           User meet Partner, Partner meet User.<br /><br />
-          Please follow the links to Pair-Program!<br /><br /><br />
+          <br /><br />
         </center>
         <div className="sessions-links">
           <center>
-            <a href="https://hangouts.google.com/call/fje6hzvFsddAlpEn1VHoACEA">Video Chat</a><br /><br />
+            <a href="https://hangouts.google.com/call/fje6hzvFsddAlpEn1VHoACEA">Google Hangouts Video Chat</a><br /><br />
             {/* <a href="https://codesandbox.io/s/serene-bhabha-0s83d">Sandbox</a><br /><br /> */}
             <pre>
               <code>
